@@ -8,13 +8,13 @@ import (
 	"strings"
 )
 
-type calc struct{}
+type Calc struct{}
 
-func (calc) operate(entrada string, operador string) int {
+func (Calc) Operate(entrada string, operador string) int {
 	entradaLimpia := strings.Split(entrada, operador)
 
-	operador1 := parsear(entradaLimpia[0])
-	operador2 := parsear(entradaLimpia[1])
+	operador1 := Parsear(entradaLimpia[0])
+	operador2 := Parsear(entradaLimpia[1])
 
 	switch operador {
 	case "+":
@@ -35,12 +35,12 @@ func (calc) operate(entrada string, operador string) int {
 	}
 }
 
-func parsear(entrada string) int {
+func Parsear(entrada string) int {
 	operador, _ := strconv.Atoi(entrada)
 	return operador
 }
 
-func leerEntrada() string {
+func LeerEntrada() string {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	scanner.Scan()
